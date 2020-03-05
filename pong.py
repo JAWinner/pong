@@ -90,17 +90,19 @@ while True:
     if ball.ycor() > 290: #top border
        ball.sety(290)
        ball.dy *= -1
-       winsound.PlaySound("pong.mp3", winsound.SND_ASYNC)
+       winsound.PlaySound("paddle.wav", winsound.SND_ASYNC)
     
     if ball.ycor() < -290: #bottom border
        ball.sety(-290)
        ball.dy *= -1 
-       winsound.PlaySound("pong.mp3", winsound.SND_ASYNC)
+       winsound.PlaySound("paddle.wav", winsound.SND_ASYNC)
        
        
     if ball.xcor() > 390:#right border
        ball.goto(0,0)
        ball.dx *= -1
+       #ball.dx -=2
+       #ball.dy -=2
        score1 += 1
        pen.clear()
        pen.write("Player 1: {} Player 2: {}".format (score1, score2), align="center", font=("Courier", 24,"normal"))
@@ -109,6 +111,8 @@ while True:
     if ball.xcor() < -390:#left border
        ball.goto(0,0)
        ball.dx *= -1
+       #ball.dx -= 2
+       #ball.dy -= 2
        score2 += 1
        pen.clear() 
        pen.write("Player 1: {} Player 2: {}".format (score1, score2), align="center", font=("Courier", 24,"normal"))
@@ -119,11 +123,15 @@ while True:
     and ball.ycor() > paddle2.ycor() - 40): #Paddle 2 Collison
          ball.setx(340)
          ball.dx *= -1
-         winsound.PlaySound("../pong.mp3", winsound.SND_ASYNC)
+         #ball.dx +=.5
+         #ball.dy +=.5
+         winsound.PlaySound("paddle.wav", winsound.SND_ASYNC)
     
     if ball.xcor() < -340 and ball.xcor() > -350 and (ball.ycor() < paddle1.ycor() + 40 
     and ball.ycor() > paddle1.ycor() - 40): #Paddle 1 Collision
          ball.setx(-340)
          ball.dx *= -1
-         winsound.PlaySound("../pong.mp3", winsound.SND_ASYNC)
+         #ball.dx +=.5
+         #ball.dy +=.5
+         winsound.PlaySound("paddle.wav", winsound.SND_ASYNC)
          
